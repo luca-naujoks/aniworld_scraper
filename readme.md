@@ -12,7 +12,34 @@ There fore Giant Props to you :)
 
 This Repository will focus on "Migrating" the Project into a docker image and Maintain it there. So from time to time i will remove Windows/Unix/Linux specific switches.
 
-## How to use Docker
+## How to Use with Docker
+
+Make sure [Docker is installed](https://docs.docker.com/engine/install/) on your device.
+
+### 1. (Optional) Pull the Image
+
+```bash
+docker pull ghcr.io/luca-naujoks/aniworld_scraper
+```
+
+### 2. Run the Container
+
+```bash
+docker run -v "$(pwd)/output:/app/output" ghcr.io/luca-naujoks/aniworld_scraper \
+   --type anime \
+   --name your-media-title \
+   --lang Language-here \
+   --dl-mode Series \
+   --season-override 0 \
+   --provider VOE
+```
+
+#### Command Breakdown
+
+- **docker run**: Runs a new container.
+- **-v "$(pwd)/output:/app/output"**: Mounts the `output` folder from your current directory to `/app/output` in the container (where downloads will be saved).
+- **ghcr.io/luca-naujoks/aniworld_scraper**: Specifies the Docker image to use.
+- **Script arguments**: All parameters after the image name are passed directly to the Python script inside the container (see "Supported Arguments" above).
 
 ## How to Use Manual
 
